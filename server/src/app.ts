@@ -7,6 +7,7 @@ import cors from 'cors'
 import debug from 'debug'
 import { CommonRoutesConfig } from './routes/common/common.routes.config'
 import { UserRoutes } from './routes/users/users.routes.config'
+import { LinkRoutes } from './routes/links/links.routes.config'
 
 dotenv.config()
 
@@ -63,6 +64,7 @@ if (process.env.DEBUG) {
 
 // Creating instace of Routes
 routes.push(new UserRoutes(app))
+routes.push(new LinkRoutes(app))
 
 // Start server
 server.listen(port, () => {

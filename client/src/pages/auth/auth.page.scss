@@ -1,0 +1,34 @@
+.card-styles {
+
+    .active{
+        color: #ff9800 !important;
+    }
+
+    .custom-input {
+        border-bottom: 1px solid #fff !important;
+        box-shadow: 0 1px 0 0 #fff !important;
+
+        &:focus {
+            border-bottom: 1px solid #ff9800 !important;
+            box-shadow: 0 1px 0 0 #ff9800 !important;
+        }
+
+        &+label {
+            color: #fff !important;
+        }
+
+        &+label:focus {
+            color: #ff9800 !important;
+        }
+
+
+    }
+
+
+    .buttons-styles {
+        display: flex;
+        justify-content: space-around;
+    }
+
+
+}

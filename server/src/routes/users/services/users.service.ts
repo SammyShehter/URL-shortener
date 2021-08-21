@@ -13,8 +13,8 @@ class UserService {
         return bcrypt.compare(password, hashedPassword)
     }
 
-    generateAccessToken(username: string): string {
-        return jwt.sign({username}, process.env.JWT_TOKEN, {expiresIn: '1h'})
+    generateAccessToken(user: {id: string}): string {
+        return jwt.sign(user, process.env.JWT_TOKEN, {expiresIn: '1h'})
     }
 }
 

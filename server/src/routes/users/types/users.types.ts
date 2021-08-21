@@ -4,3 +4,9 @@ export type User = {
     password: string
     links: []
 }
+
+export type decodedUser = {
+    id: string
+    iat: number
+    exp: number
+}

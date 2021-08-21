@@ -7,34 +7,29 @@ import UserDao from '../daos/user.dao'
 const log: debug.IDebugger = debug('app:users-controller')
 
 class UserController {
-
-    
-
-    async registerUser (req: express.Request, res: express.Response) {
+    async registerUser(req: express.Request, res: express.Response) {
         try {
             const hashedPass = await UserService.hashPassword(req.body.password)
             const userFields = {
                 username: req.body.username,
-                password: hashedPass
+                password: hashedPass,
             }
             const newUser = await UserDao.addUser(userFields)
-            return res.status(201).json({message: `${newUser} created`})
+            return res
+                .status(201)
+                .json({ message: `User '${newUser}' created` })
         } catch (e) {
             error(e, req, res)
         }
     }
 
-    async loginUser (req: express.Request, res: express.Response) {
+    async loginUser(req: express.Request, res: express.Response) {
         try {
-            const token = UserService.generateAccessToken(req.user.username)
-            return res.status(200).json({token})
+            const token = UserService.generateAccessToken({id: req.user._id})
+            return res.status(200).json({ token })
         } catch (e) {
             error(e, req, res)
         }
-    }
-
-    async test (req: express.Request, res: express.Response) {
-        res.status(200).send('ok')
     }
 }
 

@@ -23,5 +23,7 @@ export const error = (
     ${errorLog[0]} 
     
     `)
-    return res.status(status).send(error.message)
+    return res
+        .status(status)
+        .json({ errors: [{ param: 'Server Side', message: error.message }] })
 }

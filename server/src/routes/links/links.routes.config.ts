@@ -28,6 +28,14 @@ export class LinkRoutes extends CommonRoutesConfig {
             .route('/links/byId/:id')
             .all(commonMiddleware.authUserToken)
             .get(LinksController.byId)
+
+        this.app
+            .route('/t/:link')
+            .all(
+                LinkMiddleware.validateLink,
+                LinkMiddleware.validateExpiration
+                )
+            .get(LinksController.redirect)
         return this.app
     }
 }

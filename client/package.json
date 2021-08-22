@@ -3,14 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "@types/jest": "^26.0.24",
-    "@types/node": "^12.20.19",
-    "@types/node-sass": "^4.11.2",
-    "@types/react": "^17.0.16",
-    "@types/react-dom": "^17.0.9",
     "axios": "^0.21.1",
     "materialize-css": "^1.0.0-rc.2",
     "node-sass": "^6.0.1",
@@ -33,7 +25,6 @@
       "react-app/jest"
     ]
   },
-  "proxy": "http://localhost:13000",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -48,6 +39,10 @@
   },
   "devDependencies": {
     "@types/materialize-css": "^1.0.11",
-    "@types/react-router-dom": "^5.1.8"
+    "@types/react-router-dom": "^5.1.8",
+    "@types/node": "^12.20.19",
+    "@types/node-sass": "^4.11.2",
+    "@types/react": "^17.0.16",
+    "@types/react-dom": "^17.0.9"
   }
 }

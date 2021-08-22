@@ -36,11 +36,23 @@ class LinksDao {
             ...linkFields,
         })
         await instance.save()
-        return instance.code
+        return instance._id
     }
 
-    async findLink(_id: string) {
+    async findLinkByCode(code: string) {
+        return this.Link.findOne({ code }).exec()
+    }
+
+    async findLinkByOrigin(from: string) {
+        return this.Link.findOne({ from }).exec()
+    }
+
+    async findLinkById(_id: string) {
         return this.Link.findOne({ _id }).exec()
+    }
+
+    async addNewClick(link: Link){
+        return this.Link.findOneAndUpdate({_id: link._id}, {clicks: link.clicks + 1})
     }
 
     async removeLink(code: string) {

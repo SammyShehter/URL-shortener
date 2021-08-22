@@ -14,7 +14,7 @@ class UserService {
     }
 
     generateAccessToken(user: {id: string}): string {
-        return jwt.sign(user, process.env.JWT_TOKEN, {expiresIn: '1h'})
+        return jwt.sign(user, process.env.JWT_TOKEN, {expiresIn: '30d'})
     }
 }
 

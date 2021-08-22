@@ -20,7 +20,7 @@ class LinkController {
     async addLink(req: express.Request, res: express.Response) {
         try {
             const { from } = req.body
-            const linkExists = await LinkDao.findLink(from)
+            const linkExists = await LinkDao.findLinkByOrigin(from)
             if (linkExists) return res.json({ link: linkExists })
             
             const link = LinkService.createNewLink({
@@ -28,9 +28,9 @@ class LinkController {
                 owner: req.decodedUser.id,
             })
 
-            await LinkDao.addLink(link)
+            const linkId = await LinkDao.addLink(link)
 
-            res.status(201).json(link)
+            res.status(201).json(linkId)
         } catch (e) {
             error(e, req, res)
         }
@@ -38,11 +38,16 @@ class LinkController {
 
     async byId(req: express.Request, res: express.Response) {
         try {
-            const link = await LinkDao.findLink(req.params.id)
+            const link = await LinkDao.findLinkById(req.params.id)
             res.json(link)
         } catch (e) {
             error(e, req, res)
         }
+    }
+
+    async redirect(req: express.Request, res: express.Response){
+        await LinkDao.addNewClick(req.link)
+        return res.redirect(req.link.from)
     }
 }
 

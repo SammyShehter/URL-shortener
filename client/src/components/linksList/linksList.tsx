@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export interface ILinksProps {
     links: any[]
@@ -26,12 +27,13 @@ export const LinksList = ({ links }: ILinksProps) => {
 
     // }
 
-    const linksOrder = links.map((link) => {
+    const linksOrder = links.map((link, idx) => {
         return (
-            <tr key={link.expDate}>
+            <tr key={link._id}>
+                <td>{idx+1}</td>
                 <td>{link.from}</td>
                 <td>{link.to}</td>
-                <td>{link.code}</td>
+                <td><Link to={`details/${link._id}`}>Details</Link></td>
             </tr>
         )
     })
@@ -39,12 +41,13 @@ export const LinksList = ({ links }: ILinksProps) => {
     return (
         <>
             <h2>Links</h2>
-            <table className='striped'>
+            <table className='striped responsive-table'>
                 <thead>
                     <tr>
-                        <th>From</th>
-                        <th>To</th>
-                        <th>Code</th>
+                        <th>#</th>
+                        <th>Origin</th>
+                        <th>Short</th>
+                        <th>Open</th>
                     </tr>
                 </thead>
 

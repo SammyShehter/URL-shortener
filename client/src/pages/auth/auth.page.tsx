@@ -47,8 +47,7 @@ export const AuthPage = () => {
     }
 
     return (
-        <div className='row'>
-            <div className='col s6 offset-s3'>
+            <div className='col m8'>
                 <h1 className='center'>URL Shortener</h1>
                 <div className='card hoverable blue darken-1 card-styles'>
                     <div className='card-content white-text'>
@@ -102,6 +101,5 @@ export const AuthPage = () => {
                     </div>
                 </div>
             </div>
-        </div>
     )
 }

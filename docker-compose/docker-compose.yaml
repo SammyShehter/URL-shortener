@@ -9,10 +9,10 @@ services:
         ports:
             - '13000:13000'
         environment:
-            - MOONGO_CONNECTION_STRING=mongodb+srv://worker:xEJMkgYK1xReH52cg@mufinfo.rdfjw.mongodb.net/T02?retryWrites=true&w=majority
-            - JWT_TOKEN=xx/@k:!cvHD"n&gN3yp^GVqb&k^\el194!
+            - MOONGO_CONNECTION_STRING=
+            - JWT_TOKEN=
             - PORT=13000
-            - BASE_URL=http://localhost:13000
+            - BASE_URL=https://to2api.sammyshehter.com
             - RICK_URL=https://www.youtube.com/watch?v=dQw4w9WgXcQ
 
     client:
